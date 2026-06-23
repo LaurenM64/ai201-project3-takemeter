@@ -40,15 +40,15 @@ A dataset of 200 posts was curated to reflect real-world `r/pokemon` data. There
 
 **Difficult-to-Label Examples (Edge Cases):**
 
-1. **The Trojan Horse Math:** *"charizard is overrated trash but u gotta admit solar power in sun giving a 1.5x sp attack multiplier actually lets it 2HKO toxapex with fire blast which is insane"*
+1. *"charizard is overrated trash but u gotta admit solar power in sun giving a 1.5x sp attack multiplier actually lets it 2HKO toxapex with fire blast which is insane"*
 * **Decision:** `analysis`. Despite starting with a subjective rant ("overrated trash"), the core argument relies entirely on verifiable competitive mathematics.
 
 
-2. **The Pseudo-Intellectual Metric:** *"bro honestly the vibes in the new region are just completely off like 0/10 energy it feels like a weird mobile game from 2012 and nobody can convince me otherwise"*
+2.  *"bro honestly the vibes in the new region are just completely off like 0/10 energy it feels like a weird mobile game from 2012 and nobody can convince me otherwise"*
 * **Decision:** `subjective_take`. It uses numbers ("0/10"), but they represent purely emotional/subjective metrics, not game mechanics.
 
 
-3. **The Buried Lede:** *"im literally losing my mind gamefreak hates us the elite four is actually cheating this time how tf are u guys getting past the steel user without a fire mon do i need to go back and catch a houndoom or what"*
+3.  *"im literally losing my mind gamefreak hates us the elite four is actually cheating this time how tf are u guys getting past the steel user without a fire mon do i need to go back and catch a houndoom or what"*
 * **Decision:** `strategy_inquiry`. It reads like an 80% subjective rant, but the fundamental intent is a direct plea for team-building help to overcome a wall.
 
 
@@ -99,7 +99,7 @@ The fine-tuned model achieved 93.3% accuracy, missing only 2 out of 30 test case
 * *Analysis:* The model got distracted by the dense meta-game terminology ("walled by blissey", "physical attacker", "toxic on the switch"). Because that vocabulary heavily skewed toward `analysis` in the training data, the model ignored the structural plea for help ("what physical attacker completely shreds...").
 
 
-2. **The Out-of-Bounds Edge Case (True: `strategy_inquiry` | Predicted: `subjective_take`)**
+2. **(True: `strategy_inquiry` | Predicted: `subjective_take`)**
 * *Text:* "Like should I immediately buy this game. It seems like folks are really enjoying it but I was skeptical."
 * *Analysis:* There is a question, but it violates the strict definition of `strategy_inquiry` ("how to overcome an *in-game* obstacle"). Purchasing the game is not an in-game obstacle, which should have been better explained in the labels. The model latched onto emotional words ("enjoying", "skeptical") and threw it into `subjective_take`.
 
@@ -128,7 +128,8 @@ My original label taxonomy was much too centered on the TOPIC of the post (gamep
 
 ## 8. Spec Reflection
 
-* **Helpful Guide:** The spec explicitly forcing the definition of "Hard Edge Cases" before touching a line of code was helpful. While considering the edge cases, my taxonomy actually changed a few times to become more precise and resulted in more accuracy when passing it through an LLM for initial labeling. Seeing that if the accuracy was too high allowed me to analyze my initial 100% accuracy rate and see that the issue lied in the data that I collected, being too neatly organized into labels.  I needed messier edge cases that once included, resulted in just enough mess ups from the LLM to ensure that it was not a one time success.   
+* **Helpful Guide:** The spec explicitly forcing the definition of "Hard Edge Cases" before touching a line of code was helpful. While considering the edge cases, my taxonomy actually changed a few times to become more precise and resulted in more accuracy when passing it through an LLM for initial labeling. Seeing that if the accuracy was too high allowed me to analyze my initial 100% accuracy rate and see that the issue lied in the data that I collected, being too neatly organized into labels.  I needed messier edge cases that once included, resulted in just enough mess ups from the LLM to ensure that it was not a one time success.
+**Diverging Case:** While the pipeline mentioned to move to the next stage, when my initial zero-shot baseline scored a suspicious 100% accuracy, instead of just moving on to fine-tuning, I paused the pipeline, and assessed why rather than just accepting it.  I realized I must change my cases to include much messier data, and then re-ran the baseline multiple times until the F1-score dropped. I diverged because stress-testing the taxonomy's breaking points was more valuable than just checking off the baseline step and moving forward.
 
 ## 9. AI Usage Statement
 
