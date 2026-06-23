@@ -18,8 +18,12 @@ Example 1: "Gen 1 has the best starters, you can't beat the classics that look l
 Example 2: "Yeah, a decent amount of people who've been around since before Gen 6 attribute the fact that Pokemon in general started going downhill once they transitioned from 2D to 3D. It's not really a hot take, more of a well-known take."
 analysis A post that makes an argument supported by specific, verifiable evidence—like citing base stats, quoting specific game text, or doing competitive math.
 
+analysis: A post with factual evidence coming from game source files analyzing various aspects.  Opinions can be made here if backed up with evidence. 
+
 Example 1: "Not sure if this is a hot take, but Ice should resist Water and Dragon. It shouldn't get a defense buff in Snow though. Aurora Veil exists and we don't want to make Ice Pokemon on the snow even bulkier when they can already freeze you to death with 100% Blizzard spam."
 Example 2: "HM's used to be important parts of puzzles and dungeons. None of those things exist in the recent games. I miss the obnoxious 'move these boulders in the right order' aspect of things. It gave players a reason to go back to areas they've already visited. Turning HM's into simple keys you carry removes the strategy that comes with dungeon diving and team building."
+
+
 strategy_inquiry A post actively soliciting help, team-building advice, or asking a direct question about how to overcome an in-game obstacle.
 
 Example 1: "I'm stuck on Cynthia's Garchomp in BDSP. My current team is Empoleon, Staraptor, Luxray, Rapidash, Roserade, and Lucario. Should I swap out Luxray for a dedicated Ice type like Weavile, or just try to overlevel my Empoleon so it can tank a hit?"
